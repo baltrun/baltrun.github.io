@@ -1,10 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Merhaba Dünya</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dotfiles Hub</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Fira Code', monospace;
+    background-color: #1e1e2e;
+    color: #cdd6f4;
+  }
+  header {
+    background-color: #313244;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  nav a {
+    color: #cdd6f4;
+    margin-left: 1rem;
+    text-decoration: none;
+  }
+  nav a:hover { color: #f5c2e7; }
+  section { padding: 2rem; }
+  h1 { font-size: 2.5rem; color: #f5c2e7; }
+  .config-section {
+    background-color: #313244;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+  }
+  pre {
+    background-color: #1e1e2e;
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #313244;
+  }
+</style>
 </head>
 <body>
-  <h1>İlk GitHub Sitesi!</h1>
-  <p>GitHub Pages ile yayınlandı 🚀</p>
+<header>
+  <div class="logo">Dotfiles Hub</div>
+  <nav>
+    <a href="#polybar">Polybar</a>
+    <a href="#i3">i3</a>
+    <a href="#picom">Picom</a>
+    <a href="#wallpapers">Wallpapers</a>
+  </nav>
+</header>
+
+<section>
+  <h1>Welcome to my Arch/i3 Dotfiles Showcase 🚀</h1>
+  <p>Explore my configurations, polybar setups, picom effects, and wallpapers.</p>
+</section>
+
+<section id="polybar" class="config-section">
+  <h2>Polybar</h2>
+  <img src="polybar-screenshot.png" alt="Polybar Screenshot" width="600">
+  <pre>
+# Example polybar config snippet
+[module/date]
+type = internal/date
+interval = 5
+format = %Y-%m-%d %H:%M
+  </pre>
+</section>
+
+<section id="i3" class="config-section">
+  <h2>i3</h2>
+  <img src="i3-screenshot.png" alt="i3 Screenshot" width="600">
+  <pre>
+# i3 config snippet
+set $mod Mod4
+bindsym $mod+Return exec alacritty
+  </pre>
+</section>
+
+<section id="picom" class="config-section">
+  <h2>Picom</h2>
+  <img src="picom-screenshot.png" alt="Picom Screenshot" width="600">
+  <pre>
+# Picom config example
+fading = true;
+fade-in-step = 0.03;
+  </pre>
+</section>
+
+<section id="wallpapers" class="config-section">
+  <h2>Wallpapers</h2>
+  <p>Click to download:</p>
+  <ul>
+    <li><a href="wallpaper1.png">Wallpaper 1</a></li>
+    <li><a href="wallpaper2.png">Wallpaper 2</a></li>
+  </ul>
+</section>
+
+<footer>
+  <p>Made with ❤️ on Arch Linux | <a href="https://github.com/username">GitHub</a></p>
+</footer>
 </body>
 </html>
