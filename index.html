@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Metin Kutusu ve Dönüş Butonu</title>
+<title>Metin Kutusu ve Animasyonlu Buton</title>
 <style>
   body {
     margin: 0;
@@ -50,8 +50,9 @@
     transition: transform 0.5s;
   }
 
-  .spin-button.spin {
-    transform: rotate(360deg);
+  /* Animasyon sınıfı */
+  .spin-button.animate {
+    transform: rotate(360deg) scale(1.2);
   }
 </style>
 </head>
@@ -61,14 +62,14 @@
   <h2>Yazı</h2>
   <textarea placeholder="Buraya yazını yazabilirsin..."></textarea>
   <br>
-  <button class="spin-button" onclick="spinButton(this)">Tıkla</button>
+  <button class="spin-button" onclick="animateButton(this)">Tıkla</button>
 </div>
 
 <script>
-  function spinButton(btn) {
-    btn.classList.add('spin');
+  function animateButton(btn) {
+    btn.classList.add('animate');
     // Animasyon bitince sınıfı kaldır
-    setTimeout(() => btn.classList.remove('spin'), 500);
+    setTimeout(() => btn.classList.remove('animate'), 500);
   }
 </script>
 
