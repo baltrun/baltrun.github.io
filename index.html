@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Metin Kutusu ve Animasyonlu Buton</title>
+<title>Kaçan Buton</title>
 <style>
   body {
     margin: 0;
@@ -13,6 +13,7 @@
     align-items: center;
     background-color: #f0f0f0;
     font-family: Arial, sans-serif;
+    overflow: hidden;
   }
 
   .container {
@@ -21,6 +22,7 @@
     padding: 30px 40px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    position: relative;
   }
 
   h2 {
@@ -39,20 +41,16 @@
     margin-bottom: 20px;
   }
 
-  .spin-button {
+  .tricky-button {
     background-color: #000000;
-    color: #ffffff;
+    color: #fff;
     border: none;
     padding: 12px 24px;
     border-radius: 8px;
-    cursor: pointer;
     font-size: 16px;
-    transition: transform 0.5s;
-  }
-
-  /* Animasyon sınıfı */
-  .spin-button.animate {
-    transform: rotate(360deg) scale(1.2);
+    position: absolute; /* mutlak konum */
+    cursor: pointer;
+    transition: all 0.3s ease;
   }
 </style>
 </head>
@@ -61,16 +59,34 @@
 <div class="container">
   <h2>Yazı</h2>
   <textarea placeholder="Buraya yazını yazabilirsin..."></textarea>
-  <br>
-  <button class="spin-button" onclick="animateButton(this)">Tıkla</button>
+  <button class="tricky-button">Tıkla Beni!</button>
 </div>
 
 <script>
-  function animateButton(btn) {
-    btn.classList.add('animate');
-    // Animasyon bitince sınıfı kaldır
-    setTimeout(() => btn.classList.remove('animate'), 500);
-  }
+  const button = document.querySelector('.tricky-button');
+  const container = document.querySelector('.container');
+
+  // Başlangıç pozisyonu ortada
+  button.style.top = '200px';
+  button.style.left = '50%';
+  button.style.transform = 'translateX(-50%)';
+
+  // Mouse butona yaklaşınca hareket ettir
+  container.addEventListener('mousemove', (e) => {
+    const rect = button.getBoundingClientRect();
+    const offset = 50; // ne kadar yakınsa kaçsın
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    if (x > -offset && x < rect.width + offset && y > -offset && y < rect.height + offset) {
+      const containerRect = container.getBoundingClientRect();
+      // Rastgele yeni pozisyon
+      const newLeft = Math.random() * (containerRect.width - rect.width);
+      const newTop = Math.random() * (containerRect.height - rect.height);
+      button.style.left = `${newLeft}px`;
+      button.style.top = `${newTop}px`;
+    }
+  });
 </script>
 
 </body>
